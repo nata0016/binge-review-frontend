@@ -1,25 +1,26 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { api } from '../services/api'
+import { ref, onMounted } from "vue";
+import { getReviews } from "../services/api.js";
 
-const reviews = ref([])
+const reviews = ref([]);
 
 onMounted(async () => {
-  const res = await api.get('/reviews?populate=*')
-  reviews.value = res.data.data
-})
+  reviews.value = await getReviews();
+});
 </script>
 
 <template>
   <div>
     <h1>All Reviews</h1>
 
-    <ul>
-      <li v-for="r in reviews" :key="r.id">
-        <router-link :to="`/reviews/${r.attributes.slug}`">
-          {{ r.attributes.seriesName }}
+    <ul v-if="reviews.length">
+      <li v-for="review in reviews" :key="review.id">
+        <router-link :to="`/reviews/${review.attributes.slug}`">
+          {{ review.attributes.title }}
         </router-link>
       </li>
     </ul>
+
+    <p v-else>Loading...</p>
   </div>
 </template>
