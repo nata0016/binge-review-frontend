@@ -1,35 +1,5 @@
-# binge-review-frontend
-# BingeReview – Frontend
+# Vue 3 + Vite
 
-BingeReview is a simple review website for TV series by genre (comedy, drama, thriller, etc.).  
-This repo contains the frontend built with Vue that displays the reviews from our Strapi backend.
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Tech Stack
-
-- Vue 3 + Vite
-- JavaScript
-- Vue Router
-- CSS (custom styles or a CSS framework)
-- Data from Strapi REST API (binge-review-backend)
-
-## Main Features
-
-- Show a list of TV series reviews (at least 10)
-- Search reviews (ex: by title or genre)
-- Click on a review to see a full detail page
-- Site-wide navigation (header/menu)
-- Responsive layout for mobile, tablet, and desktop
-
-## Project Structure
-
-- `src/main.js` – App entry
-- `src/router/` – Routes (home + review detail)
-- `src/views/HomeView.vue` – List of reviews + search
-- `src/views/ReviewDetailView.vue` – Single review page
-- `src/components/` – Reusable UI components
-
-## How to Run the Project
-
-```bash
-npm install
-npm run dev
+Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
