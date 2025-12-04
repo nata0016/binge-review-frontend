@@ -23,4 +23,4 @@ onMounted(async () => {
 
     <p v-else>Loading...</p>
   </div>
-</template>
+</template> 
