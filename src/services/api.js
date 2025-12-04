@@ -4,12 +4,15 @@ const api = axios.create({
   baseURL: "http://localhost:1337/api",
 });
 
-export const getReviews = async () => {
+export async function getReviews() {
   const res = await api.get("/reviews?populate=*");
-  return res.data.data;
-};
+  // IMPORTANT : on renvoie bien res.data.data (le tableau de Strapi)
+  return res.data?.data ?? [];
+}
 
-export const getReviewBySlug = async (slug) => {
-  const res = await api.get(`/reviews?filters[slug][$eq]=${slug}&populate=*`);
-  return res.data.data[0];
-};
+export async function getReviewBySlug(slug) {
+  const res = await api.get(
+    `/reviews?filters[slug][$eq]=${slug}&populate=*`
+  );
+  return res.data?.data?.[0] ?? null;
+}
