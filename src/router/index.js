@@ -9,7 +9,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/reviews/:slug',
+    path: '/reviews/:title',
     name: 'reviewDetail',
     component: ReviewDetailView,
   },

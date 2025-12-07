@@ -7,11 +7,11 @@
 
     <ul v-else-if="reviews.length">
       <li v-for="review in reviews" :key="review.id">
-        <router-link :to="review.attributes?.slug ? `/reviews/${review.attributes.slug}` : `/reviews/${review.id}`">
-          <h3>{{ review.attributes?.title || 'Untitled review' }}</h3>
+        <router-link :to="`/reviews/${encodeURIComponent(review.attributes?.title || review.title || review.id)}`">
+          <h3>{{ review.attributes?.title || review.title || 'Untitled review' }}</h3>
         </router-link>
-        <p>Rating: {{ review.attributes?.rating ?? 'N/A' }}</p>
-        <p>Genre: {{ review.attributes?.genre ?? 'Unknown' }}</p>
+        <p>Rating: {{ review.attributes?.rating ?? review.rating ?? 'N/A' }}</p>
+        <p>Genre: {{ review.attributes?.genre ?? review.genre ?? 'Unknown' }}</p>
       </li>
     </ul>
 
