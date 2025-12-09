@@ -16,12 +16,6 @@
     </ul>
 
     <p v-else>No reviews found. If you added reviews in Strapi, make sure the Strapi server is running and the entries are published.</p>
-
-    <!-- DEBUG: show raw reviews JSON to help inspect response shape -->
-    <details style="margin-top:1rem;">
-      <summary>Debug: raw reviews payload</summary>
-      <pre style="max-height:300px;overflow:auto;background:#f6f8fa;padding:8px;border-radius:4px">{{ JSON.stringify(reviews, null, 2) }}</pre>
-    </details>
   </div>
 </template>
 
@@ -36,8 +30,6 @@ const error = ref(null)
 onMounted(async () => {
   try {
     const res = await getReviews()
-    console.log('getReviews() response:', res)
-
     // `getReviews()` returns the Strapi response object (res.data),
     // normalize to an array for rendering.
     if (Array.isArray(res)) {

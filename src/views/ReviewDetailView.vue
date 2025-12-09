@@ -59,7 +59,6 @@ onMounted(async () => {
             <span v-for="(child, j) in block.children" :key="j">{{ child.text || JSON.stringify(child) }}</span>
           </p>
           <img v-else-if="block.url" :src="block.url" :alt="block.alt || ''" />
-          <pre v-else style="white-space:pre-wrap">{{ JSON.stringify(block, null, 2) }}</pre>
         </div>
       </div>
     </div>
