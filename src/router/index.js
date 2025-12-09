@@ -1,6 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import ReviewDetailView from '../views/ReviewDetailView.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+
+// Pages existantes
+import HomeView from '../views/homeView.vue'
+import ReviewDetailView from '../views/ReviewDetailView.vue'
+
+//  Nouvelles pages
+import AboutView from '../views/AboutView.vue'
+import ContactView from '../views/ContactView.vue'
 
 const routes = [
   {
@@ -9,15 +15,25 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/reviews/:slug',
+    path: '/reviews/:title',
     name: 'reviewDetail',
     component: ReviewDetailView,
   },
-];
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutView,
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactView,
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router
